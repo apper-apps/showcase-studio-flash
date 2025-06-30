@@ -1,17 +1,16 @@
-import { useState, useEffect, useCallback } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { projectService } from '@/services/api/projectService'
-import { categoryService } from '@/services/api/categoryService'
-import Header from '@/components/organisms/Header'
-import CategoryFilter from '@/components/molecules/CategoryFilter'
-import SearchBar from '@/components/molecules/SearchBar'
-import ProjectGrid from '@/components/organisms/ProjectGrid'
-import ProjectModal from '@/components/organisms/ProjectModal'
-import Footer from '@/components/organisms/Footer'
-import Loading from '@/components/ui/Loading'
-import Error from '@/components/ui/Error'
-
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import Header from "@/components/organisms/Header";
+import Footer from "@/components/organisms/Footer";
+import ProjectGrid from "@/components/organisms/ProjectGrid";
+import ProjectModal from "@/components/organisms/ProjectModal";
+import CategoryFilter from "@/components/molecules/CategoryFilter";
+import SearchBar from "@/components/molecules/SearchBar";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import { projectService } from "@/services/api/projectService";
+import { categoryService } from "@/services/api/categoryService";
 const Portfolio = () => {
   const { category: urlCategory, id: urlProjectId } = useParams()
   const navigate = useNavigate()
@@ -101,10 +100,10 @@ const Portfolio = () => {
     setSearchQuery(query)
   }, [])
 
-  const handleProjectClick = (project) => {
+const handleProjectClick = (project) => {
     setSelectedProject(project)
     setIsModalOpen(true)
-    navigate(`/project/${project.Id}`)
+    navigate(`/project/${project.id}`)
   }
 
   const handleModalClose = () => {
@@ -123,13 +122,60 @@ const Portfolio = () => {
   const handleRetry = () => {
     loadData()
   }
-
   if (loading) {
-    return <Loading />
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main className="max-w-7xl mx-auto px-6 py-16">
+          {/* Filters Skeleton */}
+          <div className="mb-16 space-y-8">
+            <div className="flex flex-wrap justify-center gap-3">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="h-10 bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 rounded-full w-24 animate-pulse bg-[length:200%_100%]" style={{
+                  animation: 'shimmer 2s infinite linear',
+                  backgroundImage: 'linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%)'
+                }} />
+              ))}
+            </div>
+            <div className="max-w-md mx-auto">
+              <div className="h-12 bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 rounded-lg animate-pulse bg-[length:200%_100%]" style={{
+                animation: 'shimmer 2s infinite linear',
+                backgroundImage: 'linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%)'
+              }} />
+            </div>
+          </div>
+          
+          <ProjectGrid loading={true} />
+        </main>
+        <Footer />
+        
+        <style jsx>{`
+          @keyframes shimmer {
+            0% {
+              background-position: -200% 0;
+            }
+            100% {
+              background-position: 200% 0;
+            }
+          }
+        `}</style>
+      </div>
+    )
   }
 
-  if (error) {
-    return <Error message={error} onRetry={handleRetry} />
+if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main className="max-w-7xl mx-auto px-6 py-16">
+          <Error 
+            message={error}
+            onRetry={handleRetry}
+          />
+        </main>
+        <Footer />
+      </div>
+    )
   }
 
   return (
