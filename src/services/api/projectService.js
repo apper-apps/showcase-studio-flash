@@ -71,6 +71,16 @@ export const projectService = {
       throw new Error('Project not found')
     }
     const deletedProject = projectsData.splice(index, 1)[0]
-    return { ...deletedProject }
+return { ...deletedProject }
+  },
+
+  async incrementViewCount(id) {
+    await delay(100)
+    const index = projectsData.findIndex(p => p.Id === parseInt(id))
+    if (index === -1) {
+      throw new Error('Project not found')
+    }
+    projectsData[index].viewCount = (projectsData[index].viewCount || 0) + 1
+    return { ...projectsData[index] }
   }
 }

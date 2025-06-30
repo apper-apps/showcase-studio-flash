@@ -14,9 +14,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/ecommerce",
     "date": "2024-01-15",
-    "featured": true
+    "featured": true,
+    "viewCount": 2847
   },
-  {
+{
     "Id": 2,
     "title": "Task Management App",
     "category": "apps",
@@ -30,9 +31,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/taskapp",
     "date": "2024-02-20",
-    "featured": true
+    "featured": true,
+    "viewCount": 1923
   },
-  {
+{
     "Id": 3,
     "title": "Space Adventure Game",
     "category": "games",
@@ -46,9 +48,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/spacegame",
     "date": "2024-03-10",
-    "featured": false
+    "featured": false,
+    "viewCount": 834
   },
-  {
+{
     "Id": 4,
     "title": "Corporate Website",
     "category": "websites",
@@ -62,9 +65,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/corporate",
     "date": "2024-01-05",
-    "featured": true
+    "featured": true,
+    "viewCount": 1456
   },
-  {
+{
     "Id": 5,
     "title": "Weather Dashboard",
     "category": "apps",
@@ -78,9 +82,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/weather",
     "date": "2024-02-28",
-    "featured": false
+    "featured": false,
+    "viewCount": 672
   },
-  {
+{
     "Id": 6,
     "title": "Online Marketplace",
     "category": "ecommerce",
@@ -94,9 +99,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/marketplace",
     "date": "2024-03-15",
-    "featured": false
+    "featured": false,
+    "viewCount": 291
   },
-  {
+{
     "Id": 7,
     "title": "Puzzle Game Collection",
     "category": "games",
@@ -110,9 +116,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/puzzles",
     "date": "2024-04-01",
-    "featured": true
+    "featured": true,
+    "viewCount": 2156
   },
-  {
+{
     "Id": 8,
     "title": "Restaurant Website",
     "category": "websites",
@@ -126,9 +133,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/restaurant",
     "date": "2024-03-25",
-    "featured": false
+    "featured": false,
+    "viewCount": 387
   },
-  {
+{
     "Id": 9,
     "title": "Fitness Tracker",
     "category": "apps",
@@ -142,9 +150,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/fitness",
     "date": "2024-04-10",
-    "featured": true
+    "featured": true,
+    "viewCount": 1789
   },
-  {
+{
     "Id": 10,
     "title": "Fashion Store",
     "category": "ecommerce",
@@ -158,9 +167,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/fashion",
     "date": "2024-04-20",
-    "featured": false
+    "featured": false,
+    "viewCount": 523
   },
-  {
+{
     "Id": 11,
     "title": "Racing Game",
     "category": "games",
@@ -174,9 +184,10 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/racing",
     "date": "2024-05-01",
-    "featured": true
+    "featured": true,
+    "viewCount": 1342
   },
-  {
+{
     "Id": 12,
     "title": "Portfolio Website",
     "category": "websites",
@@ -190,6 +201,7 @@
     "liveUrl": "https://example.com",
     "githubUrl": "https://github.com/example/portfolio",
     "date": "2024-05-15",
-    "featured": false
+    "featured": false,
+    "viewCount": 156
   }
 ]

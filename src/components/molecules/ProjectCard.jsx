@@ -168,12 +168,18 @@ const ProjectCard = ({ project, onClick, index = 0, loading = false }) => {
               +{project.techStack.length - 3} more
             </Badge>
           )}
-        </div>
+</div>
 
-        {/* Date */}
-        <div className="flex items-center text-xs text-slate-500">
-          <ApperIcon name="Calendar" className="w-3 h-3 mr-1" />
-          {format(new Date(project.date), 'MMM yyyy')}
+        {/* View count and Date */}
+        <div className="flex items-center justify-between text-xs text-slate-500">
+          <div className="flex items-center">
+            <ApperIcon name="Eye" className="w-3 h-3 mr-1" />
+            {project.viewCount.toLocaleString()} views
+          </div>
+          <div className="flex items-center">
+            <ApperIcon name="Calendar" className="w-3 h-3 mr-1" />
+            {format(new Date(project.date), 'MMM yyyy')}
+          </div>
         </div>
       </div>
     </motion.div>

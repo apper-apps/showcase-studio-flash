@@ -100,10 +100,19 @@ const Portfolio = () => {
     setSearchQuery(query)
   }, [])
 
-const handleProjectClick = (project) => {
-    setSelectedProject(project)
-    setIsModalOpen(true)
-    navigate(`/project/${project.id}`)
+const handleProjectClick = async (project) => {
+    try {
+      // Increment view count
+      await projectService.incrementViewCount(project.Id)
+      setSelectedProject(project)
+      setIsModalOpen(true)
+      navigate(`/project/${project.Id}`)
+    } catch (err) {
+      // Still show project even if view count fails
+      setSelectedProject(project)
+      setIsModalOpen(true)
+      navigate(`/project/${project.Id}`)
+    }
   }
 
   const handleModalClose = () => {

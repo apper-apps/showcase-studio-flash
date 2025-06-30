@@ -50,3 +50,8 @@ export const BREAKPOINTS = {
   xl: 1280,
   '2xl': 1536
 }
+
+export const VIEW_COUNT_THRESHOLDS = {
+  POPULAR: 500,
+  TRENDING: 1000
+}
