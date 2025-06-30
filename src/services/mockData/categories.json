@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "name": "All",
+    "slug": "all",
+    "count": 12
+  },
+  {
+    "Id": 2,
+    "name": "Apps",
+    "slug": "apps",
+    "count": 3
+  },
+  {
+    "Id": 3,
+    "name": "Games",
+    "slug": "games",
+    "count": 3
+  },
+  {
+    "Id": 4,
+    "name": "E-Commerce",
+    "slug": "ecommerce",
+    "count": 3
+  },
+  {
+    "Id": 5,
+    "name": "Websites",
+    "slug": "websites",
+    "count": 3
+  }
+]

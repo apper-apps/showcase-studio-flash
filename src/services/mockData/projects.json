@@ -1,0 +1,195 @@
+[
+  {
+    "Id": 1,
+    "title": "E-Commerce Platform",
+    "category": "ecommerce",
+    "description": "A full-featured online store with payment integration, inventory management, and user authentication. Built with modern React patterns and scalable architecture.",
+    "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/ecommerce",
+    "date": "2024-01-15",
+    "featured": true
+  },
+  {
+    "Id": 2,
+    "title": "Task Management App",
+    "category": "apps",
+    "description": "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    "thumbnail": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["React", "Firebase", "Material-UI", "Framer Motion"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/taskapp",
+    "date": "2024-02-20",
+    "featured": true
+  },
+  {
+    "Id": 3,
+    "title": "Space Adventure Game",
+    "category": "games",
+    "description": "An immersive 2D space exploration game with procedural generation, combat mechanics, and resource management systems.",
+    "thumbnail": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["Unity", "C#", "Photon", "Blender"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/spacegame",
+    "date": "2024-03-10",
+    "featured": false
+  },
+  {
+    "Id": 4,
+    "title": "Corporate Website",
+    "category": "websites",
+    "description": "Modern corporate website with CMS integration, SEO optimization, and responsive design for a tech consulting firm.",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["Next.js", "Sanity CMS", "Tailwind CSS", "Vercel"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/corporate",
+    "date": "2024-01-05",
+    "featured": true
+  },
+  {
+    "Id": 5,
+    "title": "Weather Dashboard",
+    "category": "apps",
+    "description": "Real-time weather application with location-based forecasts, interactive maps, and weather alerts system.",
+    "thumbnail": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["React", "OpenWeather API", "Chart.js", "Leaflet"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/weather",
+    "date": "2024-02-28",
+    "featured": false
+  },
+  {
+    "Id": 6,
+    "title": "Online Marketplace",
+    "category": "ecommerce",
+    "description": "Multi-vendor marketplace platform with seller dashboards, rating systems, and advanced search functionality.",
+    "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["Vue.js", "Laravel", "MySQL", "Redis", "AWS"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/marketplace",
+    "date": "2024-03-15",
+    "featured": false
+  },
+  {
+    "Id": 7,
+    "title": "Puzzle Game Collection",
+    "category": "games",
+    "description": "Collection of classic puzzle games including Tetris, Sudoku, and Match-3 with leaderboards and achievements.",
+    "thumbnail": "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["JavaScript", "Canvas API", "Web Audio API", "IndexedDB"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/puzzles",
+    "date": "2024-04-01",
+    "featured": true
+  },
+  {
+    "Id": 8,
+    "title": "Restaurant Website",
+    "category": "websites",
+    "description": "Elegant restaurant website with online reservations, menu management, and integration with delivery platforms.",
+    "thumbnail": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["Gatsby", "Contentful", "Stripe", "Google Maps API"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/restaurant",
+    "date": "2024-03-25",
+    "featured": false
+  },
+  {
+    "Id": 9,
+    "title": "Fitness Tracker",
+    "category": "apps",
+    "description": "Comprehensive fitness tracking application with workout plans, progress analytics, and social features.",
+    "thumbnail": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["React Native", "Expo", "Firebase", "Chart.js"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/fitness",
+    "date": "2024-04-10",
+    "featured": true
+  },
+  {
+    "Id": 10,
+    "title": "Fashion Store",
+    "category": "ecommerce",
+    "description": "Premium fashion e-commerce platform with virtual try-on, size recommendations, and personalized styling features.",
+    "thumbnail": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["React", "GraphQL", "Shopify", "AR.js", "TensorFlow.js"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/fashion",
+    "date": "2024-04-20",
+    "featured": false
+  },
+  {
+    "Id": 11,
+    "title": "Racing Game",
+    "category": "games",
+    "description": "High-octane 3D racing game with realistic physics, multiple tracks, and online multiplayer competitions.",
+    "thumbnail": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["Unreal Engine", "C++", "Photon", "Wwise"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/racing",
+    "date": "2024-05-01",
+    "featured": true
+  },
+  {
+    "Id": 12,
+    "title": "Portfolio Website",
+    "category": "websites",
+    "description": "Creative portfolio website for a digital artist featuring interactive galleries, client testimonials, and booking system.",
+    "thumbnail": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1486312338219-ce68e2c6b696?w=800&h=600&fit=crop"
+    ],
+    "techStack": ["Nuxt.js", "Three.js", "GSAP", "Netlify CMS"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example/portfolio",
+    "date": "2024-05-15",
+    "featured": false
+  }
+]
