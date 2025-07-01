@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AnimatePresence } from "framer-motion";
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
 import ProjectGrid from "@/components/organisms/ProjectGrid";
@@ -19,12 +20,13 @@ const Portfolio = () => {
   const [projects, setProjects] = useState([])
   const [categories, setCategories] = useState([])
   const [filteredProjects, setFilteredProjects] = useState([])
-  const [selectedProject, setSelectedProject] = useState(null)
+const [selectedProject, setSelectedProject] = useState(null)
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   // Load initial data
   const loadData = useCallback(async () => {
@@ -90,10 +92,13 @@ const Portfolio = () => {
     setFilteredProjects(filtered)
   }, [projects, activeCategory, searchQuery])
 
-  // Handlers
-  const handleCategoryChange = (category) => {
+// Handlers
+  const handleCategoryChange = async (category) => {
+    setIsTransitioning(true)
     setActiveCategory(category)
     navigate(category === 'all' ? '/' : `/category/${category}`)
+    // Small delay to allow for smooth transition
+    setTimeout(() => setIsTransitioning(false), 100)
   }
 
   const handleSearch = useCallback((query) => {
@@ -206,12 +211,16 @@ if (error) {
           />
         </div>
 
-        {/* Projects Grid */}
-        <ProjectGrid
-          projects={filteredProjects}
-          onProjectClick={handleProjectClick}
-          onShowAll={handleShowAll}
-        />
+{/* Projects Grid */}
+        <AnimatePresence mode="wait">
+          <ProjectGrid
+            key={activeCategory + searchQuery}
+            projects={filteredProjects}
+            onProjectClick={handleProjectClick}
+            onShowAll={handleShowAll}
+            isTransitioning={isTransitioning}
+          />
+        </AnimatePresence>
       </main>
 
       <Footer />
