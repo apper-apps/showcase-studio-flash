@@ -116,3 +116,63 @@ input:focus-visible {
 .shadow-premium-xl {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+/* Swiper carousel customization */
+.project-gallery-carousel .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.project-gallery-carousel .swiper-pagination-bullet-active {
+  background: #5B21B6;
+  transform: scale(1.2);
+}
+
+.project-gallery-carousel .swiper-button-next,
+.project-gallery-carousel .swiper-button-prev {
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.project-gallery-carousel .swiper-button-next:hover,
+.project-gallery-carousel .swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.project-gallery-carousel .swiper-button-next::after,
+.project-gallery-carousel .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Thumbnail navigation */
+.gallery-thumbnails .swiper-slide {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-thumbnails .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+/* Lightbox styles */
+.lightbox-overlay {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}

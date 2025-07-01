@@ -1,11 +1,20 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Thumbs, FreeMode } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/thumbs'
+import 'swiper/css/free-mode'
 import ApperIcon from '@/components/ApperIcon'
 import Badge from '@/components/atoms/Badge'
 import Button from '@/components/atoms/Button'
 import { format } from 'date-fns'
-
 const ProjectModal = ({ project, isOpen, onClose }) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [lightboxImage, setLightboxImage] = useState(null)
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -17,6 +26,14 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
       document.body.style.overflow = 'auto'
     }
   }, [isOpen])
+
+  const handleImageClick = (image) => {
+    setLightboxImage(image)
+  }
+
+  const closeLightbox = () => {
+    setLightboxImage(null)
+  }
 
   const categoryColors = {
     apps: 'primary',
@@ -111,23 +128,66 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* Additional images */}
+{/* Image Gallery Carousel */}
               {project.images && project.images.length > 1 && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-display font-bold text-secondary mb-4">
+                  <h3 className="text-xl font-display font-bold text-secondary mb-6">
                     Project Gallery
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {project.images.slice(1).map((image, index) => (
-                      <div key={index} className="relative h-48 rounded-lg overflow-hidden">
+                  
+                  {/* Main Carousel */}
+                  <div className="mb-4">
+                    <Swiper
+                      modules={[Navigation, Pagination, Thumbs]}
+                      navigation
+                      pagination={{ clickable: true }}
+                      thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                      className="project-gallery-carousel rounded-xl overflow-hidden shadow-premium-lg"
+                      style={{ height: '400px' }}
+                    >
+                      {project.images.map((image, index) => (
+                        <SwiperSlide key={index}>
+                          <div 
+                            className="relative w-full h-full cursor-zoom-in group"
+                            onClick={() => handleImageClick(image)}
+                          >
+                            <img
+                              src={image}
+                              alt={`${project.title} - Image ${index + 1}`}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                              <ApperIcon 
+                                name="ZoomIn" 
+                                className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                              />
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+
+                  {/* Thumbnail Navigation */}
+                  <Swiper
+                    modules={[FreeMode, Thumbs]}
+                    onSwiper={setThumbsSwiper}
+                    spaceBetween={12}
+                    slidesPerView="auto"
+                    freeMode
+                    watchSlidesProgress
+                    className="gallery-thumbnails"
+                  >
+                    {project.images.map((image, index) => (
+                      <SwiperSlide key={index} style={{ width: '80px', height: '60px' }}>
                         <img
                           src={image}
-                          alt={`${project.title} - Image ${index + 2}`}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          alt={`${project.title} thumbnail ${index + 1}`}
+                          className="w-full h-full object-cover rounded-lg"
                         />
-                      </div>
+                      </SwiperSlide>
                     ))}
-                  </div>
+                  </Swiper>
                 </div>
               )}
 
@@ -157,7 +217,37 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 )}
               </div>
             </div>
-          </motion.div>
+</motion.div>
+
+          {/* Lightbox Modal */}
+          <AnimatePresence>
+            {lightboxImage && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[60] lightbox-overlay flex items-center justify-center p-4"
+                onClick={closeLightbox}
+              >
+                <button
+                  onClick={closeLightbox}
+                  className="absolute top-6 right-6 z-10 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors duration-200"
+                >
+                  <ApperIcon name="X" className="w-6 h-6 text-white" />
+                </button>
+                
+                <motion.img
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  src={lightboxImage}
+                  alt={`${project.title} - Full size`}
+                  className="lightbox-image rounded-lg shadow-premium-xl"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       )}
     </AnimatePresence>
