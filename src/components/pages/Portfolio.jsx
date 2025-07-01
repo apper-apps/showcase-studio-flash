@@ -192,26 +192,30 @@ if (error) {
     )
   }
 
-  return (
-    <div className="min-h-screen bg-white">
+return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-6 py-16">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Filters */}
-        <div className="mb-16 space-y-8">
-          <CategoryFilter
-            categories={categories}
-            activeCategory={activeCategory}
-            onCategoryChange={handleCategoryChange}
-          />
+        <div className="mb-12 sm:mb-16 space-y-6 sm:space-y-8">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-white/20">
+            <CategoryFilter
+              categories={categories}
+              activeCategory={activeCategory}
+              onCategoryChange={handleCategoryChange}
+            />
+          </div>
           
-          <SearchBar
-            onSearch={handleSearch}
-            placeholder="Search projects by name, technology, or category..."
-          />
+          <div className="px-2">
+            <SearchBar
+              onSearch={handleSearch}
+              placeholder="Search projects by name, technology, or category..."
+            />
+          </div>
         </div>
 
-{/* Projects Grid */}
+        {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <ProjectGrid
             key={activeCategory + searchQuery}

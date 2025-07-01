@@ -97,88 +97,111 @@ const ProjectCard = ({ project, onClick, index = 0, loading = false }) => {
       </motion.div>
     )
   }
-  return (
+return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
+      transition={{ delay: index * 0.08 }}
       whileHover={{ 
-        scale: 1.03,
-        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+        scale: 1.02,
+        y: -8,
+        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
       }}
       onClick={() => onClick(project)}
-      className="bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer shadow-premium hover:shadow-premium-xl transition-all duration-300 group"
+      className="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200/60 overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 group min-h-[400px] flex flex-col"
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-44 sm:h-48 overflow-hidden">
         <img
           src={project.thumbnail}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
         
         {/* Featured badge */}
         {project.featured && (
-          <div className="absolute top-4 right-4">
+          <motion.div 
+            className="absolute top-3 right-3"
+            whileHover={{ scale: 1.1 }}
+          >
             <Badge variant="warning" size="xs">
               <ApperIcon name="Star" className="w-3 h-3 mr-1" />
               Featured
             </Badge>
-          </div>
+          </motion.div>
         )}
 
         {/* Category badge */}
-        <div className="absolute top-4 left-4">
-          <Badge variant={categoryColors[project.category] || 'default'} size="xs">
+        <motion.div 
+          className="absolute top-3 left-3"
+          whileHover={{ scale: 1.05 }}
+        >
+          <Badge variant={categoryColors[project.category] || 'neural'} size="xs">
             {project.category}
           </Badge>
+        </motion.div>
+
+        {/* Hover overlay with action icons */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="flex gap-3">
+            {project.liveUrl && (
+              <motion.div
+                initial={{ scale: 0 }}
+                whileHover={{ scale: 1.2 }}
+                className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30"
+              >
+                <ApperIcon name="ExternalLink" className="w-4 h-4 text-white" />
+              </motion.div>
+            )}
+            {project.githubUrl && (
+              <motion.div
+                initial={{ scale: 0 }}
+                whileHover={{ scale: 1.2 }}
+                className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30"
+              >
+                <ApperIcon name="Github" className="w-4 h-4 text-white" />
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6 flex-1 flex flex-col">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-display font-bold text-secondary group-hover:gradient-text transition-all duration-300">
+          <h3 className="text-lg sm:text-xl font-display font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-tight">
             {project.title}
           </h3>
-          <div className="flex gap-2 ml-4">
-            {project.liveUrl && (
-              <ApperIcon name="ExternalLink" className="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors duration-200" />
-            )}
-            {project.githubUrl && (
-              <ApperIcon name="Github" className="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors duration-200" />
-            )}
-          </div>
         </div>
 
-        <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
           {project.description}
         </p>
 
         {/* Tech stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
           {project.techStack.slice(0, 3).map((tech, techIndex) => (
-            <Badge key={techIndex} size="xs">
+            <Badge key={techIndex} size="xs" variant="neural">
               {tech}
             </Badge>
           ))}
           {project.techStack.length > 3 && (
-            <Badge size="xs" variant="default">
-              +{project.techStack.length - 3} more
+            <Badge size="xs" variant="quantum">
+              +{project.techStack.length - 3}
             </Badge>
           )}
-</div>
+        </div>
 
-        {/* View count and Date */}
-        <div className="flex items-center justify-between text-xs text-slate-500">
+        {/* Stats footer */}
+        <div className="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100">
           <div className="flex items-center">
-            <ApperIcon name="Eye" className="w-3 h-3 mr-1" />
-            {project.viewCount.toLocaleString()} views
+            <ApperIcon name="Eye" className="w-3 h-3 mr-1 text-blue-500" />
+            <span className="font-medium">{project.viewCount.toLocaleString()}</span>
           </div>
           <div className="flex items-center">
-            <ApperIcon name="Calendar" className="w-3 h-3 mr-1" />
-            {format(new Date(project.date), 'MMM yyyy')}
+            <ApperIcon name="Calendar" className="w-3 h-3 mr-1 text-purple-500" />
+            <span className="font-medium">{format(new Date(project.date), 'MMM yyyy')}</span>
           </div>
         </div>
       </div>

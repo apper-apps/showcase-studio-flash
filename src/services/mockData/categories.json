@@ -3,28 +3,46 @@
     "Id": 1,
     "name": "All",
     "slug": "all",
-    "count": 12
+    "count": 16
   },
   {
     "Id": 2,
-    "name": "Apps",
-    "slug": "apps",
-    "count": 3
+    "name": "AI & ML",
+    "slug": "ai-ml",
+    "count": 2
   },
   {
     "Id": 3,
+    "name": "Data Analytics",
+    "slug": "data-analytics",
+    "count": 2
+  },
+  {
+    "Id": 4,
+    "name": "Mobile Apps",
+    "slug": "mobile-apps",
+    "count": 3
+  },
+  {
+    "Id": 5,
+    "name": "APIs",
+    "slug": "apis",
+    "count": 2
+  },
+  {
+    "Id": 6,
     "name": "Games",
     "slug": "games",
     "count": 3
   },
   {
-    "Id": 4,
+    "Id": 7,
     "name": "E-Commerce",
     "slug": "ecommerce",
     "count": 3
   },
   {
-    "Id": 5,
+    "Id": 8,
     "name": "Websites",
     "slug": "websites",
     "count": 3

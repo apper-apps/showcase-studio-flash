@@ -16,18 +16,24 @@ const Input = forwardRef(({
       )}
       <input
         ref={ref}
-        className={`
-          w-full px-4 py-3 border border-slate-300 rounded-lg 
-          focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary
+className={`
+          w-full px-4 py-3 border border-slate-300/60 rounded-xl 
+          bg-white/80 backdrop-blur-sm
+          focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/60
+          focus:bg-white focus:shadow-lg focus:shadow-blue-500/10
           disabled:bg-slate-50 disabled:cursor-not-allowed
-          transition-all duration-200
-          ${error ? 'border-error focus:ring-error/50 focus:border-error' : ''}
+          transition-all duration-300 ease-out
+          placeholder:text-slate-400
+          ${error ? 'border-red-400/60 focus:ring-red-500/30 focus:border-red-500/60' : ''}
           ${className}
         `}
         {...props}
       />
       {error && (
-        <p className="text-sm text-error">{error}</p>
+        <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
+          <span className="w-1 h-1 bg-red-500 rounded-full"></span>
+          {error}
+        </p>
       )}
     </div>
   )
